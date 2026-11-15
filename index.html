@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Setup - HostNode Minecraft</title>
+    <script>try{document.documentElement.setAttribute("data-bs-theme",localStorage.getItem("hostnode_theme")||"dark");}catch(e){}</script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-warning sticky-top px-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo2.png" alt="HostNode Logo" height="28" class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-3 align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link active fw-bold text-gold" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="config.html">Config</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="plugins.html">Plugins</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="about.html">About Us</a></li>
+                    <li class="nav-item"><ul id="authNav" class="navbar-nav flex-row gap-2 align-items-center"></ul></li>
+                    <li class="nav-item"><button id="themeToggle" class="btn btn-theme btn-sm theme-toggle">Light</button></li>
+                    <li class="nav-item"><button id="openPopupBtn" class="btn btn-warning btn-sm">Subscribe</button></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-4">
+        <section class="row g-4 mb-4">
+            <div class="col-12 col-lg-6">
+                <div class="card h-100 p-4 shadow-sm">
+                    <h2 class="text-gold h3 mb-3">PaperMC Server Setup</h2>
+                    <p class="text-body">Follow these step-by-step instructions to run a high-performance Minecraft server on your local PC:</p>
+                    <ol class="text-body mb-3">
+                        <li>Install <strong>Java JDK 21</strong> on your operating system</li>
+                        <li>Download the latest <code>paper.jar</code> build from the official site</li>
+                        <li>Place the jar in a dedicated folder and generate files using a startup script</li>
+                        <li>Accept the license agreement by setting <code>eula=true</code> in <code>eula.txt</code></li>
+                    </ol>
+                    <div class="mt-auto pt-3">
+                        <div class="btn-group">
+                            <a href="https://papermc.io/downloads/paper" target="_blank" class="btn btn-warning">Download Paper</a>
+                            <a href="config.html" class="btn btn-outline-warning">View Config</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="card h-100 p-4 shadow-sm">
+                    <h2 class="text-gold h3 mb-3">Startup Script (run.bat)</h2>
+                    <p class="text-body">Create a batch file inside your server directory with flags allocating optimal RAM:</p>
+                    <pre class="code-block p-3 rounded border border-secondary mb-2"><code>java -Xms2G -Xmx4G -jar paper.jar nogui
+pause</code></pre>
+                    <img src="images/console.png" alt="Server Console Output" class="img-fluid rounded border border-secondary mt-2">
+                </div>
+            </div>
+        </section>
+        <section class="card p-4 mb-4">
+            <h2 class="text-gold h4 mb-3">Live Server Status - Hypixel</h2>
+            <p class="text-body small">Real-time data from Minecraft Server Status API</p>
+            <div id="serverStatus" class="mt-3"></div>
+        </section>
+    </main>
+
+    <div id="popupOverlay" class="popup-overlay">
+        <div class="popup-box">
+            <button id="closePopupBtn" class="popup-close" aria-label="Close">&times;</button>
+            <h3 class="text-gold h5 mb-2">Subscribe to Updates</h3>
+            <p class="text-body small mb-3">Get notified about new PaperMC builds and optimization guides</p>
+            <form id="popupForm" novalidate>
+                <input type="text" id="subEmail" class="form-control mb-3" placeholder="Enter your email...">
+                <button type="submit" class="btn btn-warning w-100">Subscribe Now</button>
+                <p id="popupMessage" class="small mt-2 mb-0 text-center"></p>
+            </form>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-center py-3 border-top border-secondary mt-auto">
+        <div class="container">
+            <p class="text-secondary mb-0">Created by: Ramazan Zhunussov, Islam Baimagambet | Group: SE-2515</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
